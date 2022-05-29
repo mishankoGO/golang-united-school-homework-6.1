@@ -103,8 +103,8 @@ func (b *box) RemoveAllCircles() error {
 	if len(indexes) == 0 {
 		return fmt.Errorf("%s", "No circles in the shapes")
 	} else {
-		for _, j := range indexes {
-			b.shapes = append(b.shapes[:j], b.shapes[j+1:]...)
+		for i, j := range indexes {
+			b.shapes = append(b.shapes[:j-i], b.shapes[j-i+1:]...)
 		}
 		return nil
 	}
