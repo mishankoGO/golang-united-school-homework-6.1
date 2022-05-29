@@ -97,7 +97,8 @@ func (b *box) RemoveAllCircles() error {
 	var NoCircles []Shape
 	for _, elem := range b.shapes {
 		if shape, ok := elem.(Circle); !ok {
-			NoCircles = append(NoCircles, shape)
+			fmt.Println(shape, &shape)
+			NoCircles = append(NoCircles, &shape)
 		}
 	}
 	fmt.Println(len(NoCircles), len(b.shapes))
