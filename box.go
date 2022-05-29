@@ -100,10 +100,14 @@ func (b *box) RemoveAllCircles() error {
 			NoCircles = append(NoCircles, shape)
 		}
 	}
+	fmt.Println(len(NoCircles), len(b.shapes))
+	fmt.Println(NoCircles, b.shapes)
 	if len(NoCircles) == len(b.shapes) {
 		return fmt.Errorf("%s", "No circles in the shapes")
 	} else {
 		b.shapes = NoCircles
+		fmt.Println(b.shapes)
+
 		return nil
 	}
 	//panic("implement me")
