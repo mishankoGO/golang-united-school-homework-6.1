@@ -96,8 +96,7 @@ func (b *box) SumArea() float64 {
 func (b *box) RemoveAllCircles() error {
 	var indexes []int
 	for i, elem := range b.shapes {
-		_, ok := elem.(Circle)
-		if ok {
+		if _, ok := elem.(Circle); !ok {
 			indexes = append(indexes, i)
 		}
 	}
