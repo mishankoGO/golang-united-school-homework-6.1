@@ -97,13 +97,12 @@ func (b *box) RemoveAllCircles() error {
 	var indexes []int
 	for i, elem := range b.shapes {
 		fmt.Println(elem)
-		if _, ok := (elem).(Circle); ok {
+		if _, ok := (elem).(*Circle); ok {
 			indexes = append(indexes, i)
 		}
 	}
 	fmt.Println(len(indexes), len(b.shapes))
 	fmt.Println(indexes, b.shapes)
-	fmt.Println((*b).shapes)
 
 	if len(indexes) == 0 {
 		return fmt.Errorf("%s", "No circles in the shapes")
@@ -111,7 +110,7 @@ func (b *box) RemoveAllCircles() error {
 		for i := len(indexes) - 1; i >= 0; i-- {
 			b.shapes = append(b.shapes[:i], b.shapes[i+1:]...)
 		}
-		fmt.Println((*b).shapes)
+		fmt.Println(b.shapes)
 		return nil
 	}
 	//panic("implement me")
